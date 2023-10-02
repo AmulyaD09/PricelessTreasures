@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Priceless Treasures</title>
+  <style media="screen">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .background-image {
+      background-image: url('https://watermark.lovepik.com/photo/20211123/large/lovepik-turkey-handicraft-shop-picture_500829013.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      position: relative;
+      height: 100vh;
+    }
+
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.522); 
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1200px;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .tagline {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      color: #333; 
+    }
+
+    .text {
+      font-size: 20px; 
+      color: #333; 
+      background-color: rgba(255, 255, 255, 0.95); 
+      padding: 25px; 
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  {% if request.user.is_authenticated %}
+    {% include "ecom/customer_navbar.html" %}
+  {% else %}
+    {% include "ecom/navbar.html" %}
+  {% endif %}
+  
+  <div class="background-image">
+  <div class="overlay">
+    <div class="container">
+    <h3 class="tagline">Crafted with Love, Yours to Treasure</h3>
+    <p class="text">
+      Welcome to Priceless Treasures, your online haven for exquisite, handmade crafts that are not only crafted with boundless love and passion but are also uniquely attainable.
+
+  At Priceless Treasures, we believe that true artistry should be shared and cherished. Our curated collection features an array of masterpieces, each one meticulously handcrafted by skilled artisans who pour their hearts and souls into every creation. These are not just crafts; they are timeless expressions of creativity, born from a profound love for craftsmanship.
+  
+  While each piece in our collection is indeed priceless in the sense that it carries the essence of dedication and care, we are delighted to offer you the opportunity to make these treasures your own. We believe that everyone should have the chance to adorn their lives with the beauty of handmade art, to feel the warmth of a creator's love, and to create lasting memories through the objects that fill their homes.
+  
+  Explore our selection, and you'll discover a world of unique, one-of-a-kind items that transcend the ordinary. Whether it's a handwoven tapestry, a ceramic masterpiece, or a piece of jewelry that tells a story, you'll find that owning a Priceless Treasure is not just about possession; it's about embracing the spirit of artistry and bringing it into your life.
+  
+  Indulge in the joy of gifting yourself or a loved one a Priceless Treasure, and experience the magic of craftsmanship that will enrich your world in ways you never imagined. Every creation here is a reflection of our commitment to sharing the love and artistry that goes into each piece.
+  
+  Start your journey of discovery today at Priceless Treasures and embark on a timeless adventure where art, love, and craftsmanship merge to create treasures that are truly priceless.
+    </p>
+  </div>
+</div>
+</div>
+  {% include "ecom/footer.html" %}
+</body>
+
+</html>
+

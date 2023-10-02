@@ -1,0 +1,67 @@
+{% extends 'ecom/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    .alert {
+      margin-left: 25%;
+      margin-right: 25%;
+      padding: 20px;
+      background-color: #120110ed;
+      color: white;
+    }
+
+    .w3-panel p {
+      padding-top: 10px;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+  
+
+  </style>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<br><br><br><br>
+<h2 style="text-align:center; color:rgb(17, 1, 17);">Feedbacks By User</h2>
+<hr>
+{% for f in feedbacks %}
+<div class="alert" id="feedback-{{ f.id }}">
+  <span class="closebtn" onclick="dismissFeedback('{{ f.id }}');">&times;</span>
+  <strong>{{ f.date }} || By : {{ f.name }} </strong><br> {{ f.feedback }}
+</div>
+{% endfor %}
+
+<script>
+  function dismissFeedback(feedbackId) {
+    const feedbackAlert = document.getElementById(`feedback-${feedbackId}`);
+    if (feedbackAlert) {
+      feedbackAlert.style.display = 'none';
+      document.cookie = `dismissedFeedback-${feedbackId}=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+    }
+  }
+  const cookies = document.cookie.split('; ');
+  cookies.forEach(cookie => {
+    const [name, value] = cookie.split('=');
+    if (name.startsWith('dismissedFeedback-') && value === 'true') {
+      const feedbackId = name.replace('dismissedFeedback-', '');
+      dismissFeedback(feedbackId);
+    }
+  });
+</script>
+
+{% endblock content %}

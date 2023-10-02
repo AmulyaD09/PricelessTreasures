@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+  {%if request.user.is_authenticated%}
+    {% include "ecom/customer_navbar.html" %}
+  {%else%}
+    {% include "ecom/navbar.html" %}
+  {%endif%}
+<br>
+<!-- <h3 style="color:blue;text-align:center;">Your Feedback Sent Succesfully !</h3> -->
+<br>
+<div style="text-align:center;">
+  <img src="{% static "images/feedback1.png" %}"  style="width:500px; height:500px; ">
+  <h3 style="color:blue;text-align:center;">Your magical message has taken flight!</h3>
+</div>
+
+<br><br><br><br><br><br><br><br>
+  {% include "ecom/footer.html" %}
+
