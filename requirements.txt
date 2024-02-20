@@ -1,6 +1,6 @@
-jango==3.0.5
+Django==3.0.5
 psycopg2==2.9.3
 psycopg2-binary==2.9.6
-django-widet-tweaks==1.4.8
+django-widget-tweaks==1.4.8
 sqlparse==0.3.1
 xhtml2pdf
